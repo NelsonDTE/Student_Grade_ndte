@@ -53,8 +53,9 @@ public class StudentPresenter implements StudentContract.Presenter {
     // use passed state if is necessary
     GradeToStudentState savedState = getStateFromNextScreen();
     if (savedState != null) {
-      mediator.setPreviousGradeScreenState(mediator.getNextStudentScreenState());
-      model.onDataFromNextScreen(mediator.getNextStudentScreenState().data);
+      model.onRestartScreen(savedState.data);
+      state.data = savedState.data;
+
       // TODO: include code here if is necessary
 
     }

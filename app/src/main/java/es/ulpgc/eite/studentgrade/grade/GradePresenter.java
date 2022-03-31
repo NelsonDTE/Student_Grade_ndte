@@ -33,12 +33,18 @@ public class GradePresenter implements GradeContract.Presenter {
     // use passed state if is necessary
     StudentToGradeState savedState = getStateFromPreviousScreen();
 
+
+
     if (savedState != null) {
-      state.data =  mediator.getNextStudentScreenState().data;
+      state.grade =  savedState.data;
       // TODO: include code here if is necessary
 
     }
-      state.grade = "0";
+    state.grade = "0";
+
+
+
+
     // TODO: include code here if is necessary
 
   }
@@ -53,7 +59,7 @@ public class GradePresenter implements GradeContract.Presenter {
   @Override
   public void onResume() {
     // Log.e(TAG, "onResume()");
-    view.get().onDataUpdated(mediator.getGradeState());
+
     // TODO: include code here if is necessary
 
   }
@@ -83,7 +89,7 @@ public class GradePresenter implements GradeContract.Presenter {
 
   @Override
   public void onHigherGradeBtnClicked() {
-
+    state.equals(R.id.btnHigherGrade);
 
     if (mediator.getStudentState().equals(R.id.btnOutstandingGrade)){
       state.grade = "10";
@@ -95,14 +101,19 @@ public class GradePresenter implements GradeContract.Presenter {
       state.grade = "6";
     }
 
+    view.get().onDataUpdated(state);
+
     // TODO: include code here if is necessary
 
   }
 
   @Override
   public void onLowerGradeBtnClicked() {
+    state.equals(R.id.btnLowerGrade);
+
     if (mediator.getStudentState().equals(R.id.btnOutstandingGrade)){
       state.grade = "9";
+
 
     }else if (mediator.getStudentState().equals(R.id.btnMentionGrade)){
       state.grade = "7";
@@ -110,6 +121,8 @@ public class GradePresenter implements GradeContract.Presenter {
     }else if (mediator.getStudentState().equals(R.id.btnPassGrade)){
       state.grade = "5";
     }
+
+    view.get().onDataUpdated(state);
     // TODO: include code here if is necessary
 
   }
