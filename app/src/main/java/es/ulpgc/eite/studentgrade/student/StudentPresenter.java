@@ -1,5 +1,6 @@
 package es.ulpgc.eite.studentgrade.student;
 
+import android.content.Intent;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -8,6 +9,7 @@ import es.ulpgc.eite.studentgrade.R;
 import es.ulpgc.eite.studentgrade.app.AppMediator;
 import es.ulpgc.eite.studentgrade.app.GradeToStudentState;
 import es.ulpgc.eite.studentgrade.app.StudentToGradeState;
+import es.ulpgc.eite.studentgrade.grade.GradeActivity;
 
 /**
  * Created by Luis on marzo, 2022
@@ -30,6 +32,7 @@ public class StudentPresenter implements StudentContract.Presenter {
   public void onStart() {
     Log.e(TAG, "onStart()");
 
+    model.getStoredData();
     // TODO: include code here if is necessary
 
   }
@@ -87,7 +90,11 @@ public class StudentPresenter implements StudentContract.Presenter {
     StudentToGradeState newState = new StudentToGradeState();
     newState.data = state.data;
     passStateToNextScreen(newState);
-    model.getStoredData();
+    if (state.equals(R.id.btnOutstandingGrade)){
+      view.get().navigateToNextScreen();
+
+    }
+
     // TODO: include code here if is necessary
 
   }

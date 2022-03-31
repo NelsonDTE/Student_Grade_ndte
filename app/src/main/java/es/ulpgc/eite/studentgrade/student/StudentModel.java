@@ -23,6 +23,9 @@ public class StudentModel implements StudentContract.Model {
   @Override
   public void onRestartScreen(String data) {
     // Log.e(TAG, "onRestartScreen()");
+    String sameData = data;
+    this.data = sameData;
+
 
     // TODO: include code here if is necessary
   }

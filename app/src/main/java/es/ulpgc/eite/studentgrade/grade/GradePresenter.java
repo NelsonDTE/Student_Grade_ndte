@@ -28,15 +28,16 @@ public class GradePresenter implements GradeContract.Presenter {
     // Log.e(TAG, "onStart()");
 
     // TODO: include code here if is necessary
-
+    model.getStoredData();
     // use passed state if is necessary
     StudentToGradeState savedState = getStateFromPreviousScreen();
-    if (savedState != null) {
 
+    if (savedState != null) {
+      state.data =  mediator.getNextStudentScreenState().data;
       // TODO: include code here if is necessary
 
     }
-
+      state.grade = "0";
     // TODO: include code here if is necessary
 
   }
@@ -59,7 +60,8 @@ public class GradePresenter implements GradeContract.Presenter {
   @Override
   public void onBackPressed() {
     // Log.e(TAG, "onBackPressed()");
-
+    passStateToPreviousScreen(mediator.getNextStudentScreenState());
+    view.get().navigateToPreviousScreen();
     // TODO: include code here if is necessary
   }
 
@@ -80,7 +82,7 @@ public class GradePresenter implements GradeContract.Presenter {
 
   @Override
   public void onHigherGradeBtnClicked() {
-    mediator.setNextStudentScreenState(state.grade);
+    mediator.setNextStudentScreenState();
     // TODO: include code here if is necessary
 
   }
