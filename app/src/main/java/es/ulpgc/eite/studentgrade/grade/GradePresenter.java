@@ -101,7 +101,15 @@ public class GradePresenter implements GradeContract.Presenter {
 
   @Override
   public void onLowerGradeBtnClicked() {
+    if (mediator.getStudentState().equals(R.id.btnOutstandingGrade)){
+      state.grade = "9";
 
+    }else if (mediator.getStudentState().equals(R.id.btnMentionGrade)){
+      state.grade = "7";
+
+    }else if (mediator.getStudentState().equals(R.id.btnPassGrade)){
+      state.grade = "5";
+    }
     // TODO: include code here if is necessary
 
   }

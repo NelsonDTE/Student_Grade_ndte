@@ -32,7 +32,8 @@ public class StudentPresenter implements StudentContract.Presenter {
   public void onStart() {
     Log.e(TAG, "onStart()");
 
-    model.getStoredData();
+    state.data = "0";
+    view.get().onDataUpdated(state);
     // TODO: include code here if is necessary
 
   }

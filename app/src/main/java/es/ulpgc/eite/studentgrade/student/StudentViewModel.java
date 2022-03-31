@@ -8,7 +8,7 @@ import java.util.Objects;
 public class StudentViewModel {
 
   // put the view state here
-  public String data;
+  public String data = "0";
 
   @Override
   public boolean equals(Object o) {
