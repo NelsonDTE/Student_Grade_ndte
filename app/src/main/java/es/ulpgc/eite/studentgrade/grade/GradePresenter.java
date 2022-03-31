@@ -2,6 +2,7 @@ package es.ulpgc.eite.studentgrade.grade;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.studentgrade.R;
 import es.ulpgc.eite.studentgrade.app.AppMediator;
 import es.ulpgc.eite.studentgrade.app.GradeToStudentState;
 import es.ulpgc.eite.studentgrade.app.StudentToGradeState;
@@ -82,7 +83,18 @@ public class GradePresenter implements GradeContract.Presenter {
 
   @Override
   public void onHigherGradeBtnClicked() {
-    mediator.setNextStudentScreenState();
+
+
+    if (mediator.getStudentState().equals(R.id.btnOutstandingGrade)){
+      state.grade = "10";
+
+    }else if (mediator.getStudentState().equals(R.id.btnMentionGrade)){
+      state.grade = "8";
+
+    }else if (mediator.getStudentState().equals(R.id.btnPassGrade)){
+      state.grade = "6";
+    }
+
     // TODO: include code here if is necessary
 
   }

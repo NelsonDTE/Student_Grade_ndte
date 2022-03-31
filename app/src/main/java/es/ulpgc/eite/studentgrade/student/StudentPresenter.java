@@ -53,7 +53,7 @@ public class StudentPresenter implements StudentContract.Presenter {
     GradeToStudentState savedState = getStateFromNextScreen();
     if (savedState != null) {
       mediator.setPreviousGradeScreenState(mediator.getNextStudentScreenState());
-
+      model.onDataFromNextScreen(mediator.getNextStudentScreenState().data);
       // TODO: include code here if is necessary
 
     }
@@ -87,32 +87,36 @@ public class StudentPresenter implements StudentContract.Presenter {
 
   @Override
   public void onOutstandingGradeBtnClicked() {
-    StudentToGradeState newState = new StudentToGradeState();
-    newState.data = state.data;
-    passStateToNextScreen(newState);
-    if (state.equals(R.id.btnOutstandingGrade)){
+    state.equals(R.id.btnOutstandingGrade);
+      StudentToGradeState newState = new StudentToGradeState();
+      newState.data = state.data;
+      passStateToNextScreen(newState);
       view.get().navigateToNextScreen();
 
     }
 
     // TODO: include code here if is necessary
 
-  }
+
 
   @Override
   public void onMentionGradeBtnClicked() {
+    state.equals(R.id.btnMentionGrade);
     StudentToGradeState newState = new StudentToGradeState();
     newState.data = state.data;
     passStateToNextScreen(newState);
+    view.get().navigateToNextScreen();
     // TODO: include code here if is necessary
 
   }
 
   @Override
   public void onPassGradeBtnClicked() {
+    state.equals(R.id.btnPassGrade);
     StudentToGradeState newState = new StudentToGradeState();
     newState.data = state.data;
     passStateToNextScreen(newState);
+    view.get().navigateToNextScreen();
     // TODO: include code here if is necessary
 
   }
