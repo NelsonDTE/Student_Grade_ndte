@@ -5,5 +5,7 @@ package es.ulpgc.eite.studentgrade.grade;
  */
 public class GradeState extends GradeViewModel {
 
+    public String grade;
   // put the model state here
+
 }

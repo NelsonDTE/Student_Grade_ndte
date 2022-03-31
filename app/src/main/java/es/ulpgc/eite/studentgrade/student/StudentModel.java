@@ -30,7 +30,7 @@ public class StudentModel implements StudentContract.Model {
   @Override
   public void onDataFromNextScreen(String data) {
     // Log.e(TAG, "onDataFromNextScreen()");
-
+    this.data = data;
     // TODO: include code here if is necessary
   }
 

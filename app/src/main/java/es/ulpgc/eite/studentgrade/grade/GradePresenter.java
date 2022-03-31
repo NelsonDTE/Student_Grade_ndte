@@ -51,7 +51,7 @@ public class GradePresenter implements GradeContract.Presenter {
   @Override
   public void onResume() {
     // Log.e(TAG, "onResume()");
-
+    view.get().onDataUpdated(mediator.getGradeState());
     // TODO: include code here if is necessary
 
   }
@@ -66,7 +66,7 @@ public class GradePresenter implements GradeContract.Presenter {
   @Override
   public void onPause() {
     // Log.e(TAG, "onPause()");
-
+    mediator.getNextStudentScreenState();
     // TODO: include code here if is necessary
   }
 
@@ -80,7 +80,7 @@ public class GradePresenter implements GradeContract.Presenter {
 
   @Override
   public void onHigherGradeBtnClicked() {
-
+    mediator.setNextStudentScreenState(state.grade);
     // TODO: include code here if is necessary
 
   }

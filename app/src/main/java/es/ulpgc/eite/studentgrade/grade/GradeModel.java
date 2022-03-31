@@ -1,5 +1,8 @@
 package es.ulpgc.eite.studentgrade.grade;
 
+import es.ulpgc.eite.studentgrade.app.AppMediator;
+import es.ulpgc.eite.studentgrade.app.GradeToStudentState;
+
 /**
  * Created by Luis on marzo, 2022
  */
@@ -30,7 +33,7 @@ public class GradeModel implements GradeContract.Model {
   @Override
   public void onDataFromPreviousScreen(String data) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
-
+    this.data = data;
     // TODO: include code here if is necessary
   }
 }
